@@ -1,6 +1,7 @@
 # GitLab Runner on Scaleway *(alpha!)*
 
-**CAUTION** This repository is still alpha, work in progress and untested.
+**CAUTION** This repository is still alpha, work in progress and untested. [Support](https://github.com/tmaier/scaleway-gitlab-runner/pulls) is warmly welcomed.
+
 
 [![Build Status](https://travis-ci.org/tmaier/scaleway-gitlab-runner.svg?branch=master)](https://travis-ci.org/tmaier/scaleway-gitlab-runner)
 
