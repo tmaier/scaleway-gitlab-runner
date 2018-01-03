@@ -29,14 +29,14 @@ ARG DOCKER_MACHINE_VERSION=0.13.0
 
 ## Install docker-machine
 # Source: https://docs.docker.com/machine/install-machine/#install-machine-directly
-RUN curl -L https://github.com/docker/machine/releases/download/v${DOCKER_MACHINE_VERSION}/docker-machine-`uname -s`-`uname -m` >/usr/local/bin/docker-machine && \
+RUN curl -L "https://github.com/docker/machine/releases/download/v${DOCKER_MACHINE_VERSION}/docker-machine-$(uname -s)-$(uname -m)" >/usr/local/bin/docker-machine && \
   chmod +x /usr/local/bin/docker-machine
 
 ARG DOCKER_MACHINE_SCALEWAY_VERSION=1.3
 
 ## Install docker-machine-driver-scaleway
 # Source: https://github.com/scaleway/docker-machine-driver-scaleway
-RUN curl -sL https://github.com/scaleway/docker-machine-driver-scaleway/releases/download/v${DOCKER_MACHINE_SCALEWAY_VERSION}/docker-machine-driver-scaleway_${DOCKER_MACHINE_SCALEWAY_VERSION}_darwin_amd64.zip -O \
+RUN curl -sL "https://github.com/scaleway/docker-machine-driver-scaleway/releases/download/v${DOCKER_MACHINE_SCALEWAY_VERSION}/docker-machine-driver-scaleway_${DOCKER_MACHINE_SCALEWAY_VERSION}_darwin_amd64.zip" -O \
   && apt-get install -y unzip \
   && unzip docker-machine-driver-scaleway_${DOCKER_MACHINE_SCALEWAY_VERSION}_darwin_amd64.zip \
   && chmod +x docker-machine-driver-scaleway_${DOCKER_MACHINE_SCALEWAY_VERSION}_darwin_amd64/docker-machine-driver-scaleway \
