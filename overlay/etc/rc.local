@@ -12,5 +12,6 @@
 # By default this script does nothing.
 
 /usr/sbin/gitlab-runner-reconfigure &
+gitlab-runner start
 
 exit 0
