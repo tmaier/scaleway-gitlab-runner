@@ -43,7 +43,8 @@ RUN curl -sL https://github.com/scaleway/docker-machine-driver-scaleway/releases
   && mv docker-machine-driver-scaleway_${DOCKER_MACHINE_SCALEWAY_VERSION}_darwin_amd64/docker-machine-driver-scaleway /usr/local/bin/ \
   && apt-get purge -y unzip \
   && rm -rf docker-machine-driver-scaleway_${DOCKER_MACHINE_SCALEWAY_VERSION}_darwin_amd64/ \
-  && rm -rf docker-machine-driver-scaleway_${DOCKER_MACHINE_SCALEWAY_VERSION}_darwin_amd64.zip
+  && rm -rf docker-machine-driver-scaleway_${DOCKER_MACHINE_SCALEWAY_VERSION}_darwin_amd64.zip \
+  && apt-get clean
 
 COPY overlay/ /
 
