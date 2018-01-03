@@ -37,10 +37,12 @@ ARG DOCKER_MACHINE_SCALEWAY_VERSION=1.3
 ## Install docker-machine-driver-scaleway
 # Source: https://github.com/scaleway/docker-machine-driver-scaleway
 RUN curl -sL https://github.com/scaleway/docker-machine-driver-scaleway/releases/download/v${DOCKER_MACHINE_SCALEWAY_VERSION}/docker-machine-driver-scaleway_${DOCKER_MACHINE_SCALEWAY_VERSION}_darwin_amd64.zip -O \
+  && apt-get install -y unzip \
   && unzip docker-machine-driver-scaleway_${DOCKER_MACHINE_SCALEWAY_VERSION}_darwin_amd64.zip \
   && chmod +x docker-machine-driver-scaleway_${DOCKER_MACHINE_SCALEWAY_VERSION}_darwin_amd64/docker-machine-driver-scaleway \
-  mv docker-machine-driver-scaleway_${DOCKER_MACHINE_SCALEWAY_VERSION}_darwin_amd64/docker-machine-driver-scaleway /usr/local/bin/ \
-  rm -rf docker-machine-driver-scaleway_${DOCKER_MACHINE_SCALEWAY_VERSION}_darwin_amd64/
+  && mv docker-machine-driver-scaleway_${DOCKER_MACHINE_SCALEWAY_VERSION}_darwin_amd64/docker-machine-driver-scaleway /usr/local/bin/ \
+  && apt-get purge -y unzip \
+  && rm -rf docker-machine-driver-scaleway_${DOCKER_MACHINE_SCALEWAY_VERSION}_darwin_amd64/
 
 COPY overlay/ /
 
