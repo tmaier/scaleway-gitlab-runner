@@ -20,7 +20,7 @@ RUN apt-get install -y unattended-upgrades
 
 ## Install gitlab-runner
 # Source: https://docs.gitlab.com/runner/install/linux-repository.html#installing-the-runner
-COPY pin-gitlab-runner.pref /etc/apt/preferences.d/pin-gitlab-runner.pref
+COPY patches/pin-gitlab-runner.pref /etc/apt/preferences.d/pin-gitlab-runner.pref
 RUN curl -L https://packages.gitlab.com/install/repositories/runner/gitlab-runner/script.deb.sh | sudo bash \
   && apt-get install -y gitlab-runner \
   && apt-get clean
