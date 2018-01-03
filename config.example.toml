@@ -1,0 +1,31 @@
+concurrent = 20
+check_interval = 0
+
+[[runners]]
+  executor = "docker+machine"
+  limit = 20
+  name = "Local test-runner"
+  url = "https://gitlab.com"
+  token = "MY_GITLAB_TOKEN"
+  [runners.docker]
+    tls_verify = false
+    image = "alpine:latest"
+    privileged = false
+    disable_cache = false
+    volumes = ["/cache"]
+    shm_size = 0
+  [runners.machine]
+    IdleCount = 0
+    IdleTime = 1800
+    MachineDriver = "scaleway"
+    MachineName = "auto-scale-runners-%s"
+    MachineOptions = [
+      "scaleway-image=Alpine_Linux",
+      "scaleway-user=alpine",
+      "scaleway-organization=ACCESS_KEY",
+      "scaleway-token=MY_SCALEWAY_TOKEN",
+      "scaleway-region=ams1",
+      "digitalocean-private-networking",
+      "scaleway-commercial-type=VC1M"
+    ]
+  [runners.cache]
