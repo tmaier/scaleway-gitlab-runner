@@ -18,16 +18,6 @@ This image is built using [Image Tools](https://github.com/scaleway/image-tools)
 1. Copy `config.toml` to the server using `$ scw cp ./config.toml myserver:/etc/gitlab-runner/config.toml`
 1. Restart gitlab-runner `$ scw exec myserver gitlab-runner restart`
 
----
-
-**This image is meant to be used on a C1 server.**
-
-We use the Docker's building system and convert it at the end to a disk image that will boot on real servers without Docker. Note that the image is still runnable as a Docker container for debug or for inheritance.
-
-[More info](https://github.com/scaleway/image-tools)
-
----
-
 ## Install
 
 Build and write the image to `/dev/nbd1` (see [documentation](https://www.scaleway.com/docs/create-an-image-with-docker/))
