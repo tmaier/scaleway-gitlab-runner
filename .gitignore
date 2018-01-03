@@ -1,2 +1,3 @@
 .docker-container.built
 docker-rules.mk
+tmp-*/
