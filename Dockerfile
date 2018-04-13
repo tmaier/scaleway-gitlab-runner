@@ -11,12 +11,13 @@ LABEL maintainer="Tobias Maier <me@tobiasmaier.info> @tobias_maier"
 RUN /usr/local/sbin/scw-builder-enter
 
 # Update OS
-RUN apt-get update                                                                           \
- && apt-get --force-yes -y upgrade                                                           \
+RUN apt-get update \
+ && apt-get --force-yes -y upgrade \
  && apt-get clean
 
 # Install unattended updates
-RUN apt-get install -y unattended-upgrades
+RUN apt-get install -y unattended-upgrades \
+  && apt-get clean
 
 ## Install gitlab-runner
 # Source: https://docs.gitlab.com/runner/install/linux-repository.html#installing-the-runner
