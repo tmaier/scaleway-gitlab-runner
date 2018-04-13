@@ -25,7 +25,7 @@ RUN curl -L https://packages.gitlab.com/install/repositories/runner/gitlab-runne
   && apt-get install -y gitlab-runner \
   && apt-get clean
 
-ARG DOCKER_MACHINE_VERSION=0.13.0
+ARG DOCKER_MACHINE_VERSION=0.14.0
 
 ## Install docker-machine
 # Source: https://docs.docker.com/machine/install-machine/#install-machine-directly
