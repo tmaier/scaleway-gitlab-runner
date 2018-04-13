@@ -1,4 +1,5 @@
 .docker-container.built
 .docker-container-*.built
+config.toml
 docker-rules.mk
 tmp-*/
