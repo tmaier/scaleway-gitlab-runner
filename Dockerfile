@@ -30,8 +30,9 @@ ARG DOCKER_MACHINE_VERSION=0.14.0
 
 ## Install docker-machine
 # Source: https://docs.docker.com/machine/install-machine/#install-machine-directly
-RUN curl -L "https://github.com/docker/machine/releases/download/v${DOCKER_MACHINE_VERSION}/docker-machine-$(uname -s)-$(uname -m)" >/usr/local/bin/docker-machine && \
-  chmod +x /usr/local/bin/docker-machine
+RUN base=https://github.com/docker/machine/releases/download/v${DOCKER_MACHINE_VERSION} \
+  && curl -L $base/docker-machine-$(uname -s)-$(uname -m) >/tmp/docker-machine \
+  && sudo install /tmp/docker-machine /usr/local/bin/docker-machine
 
 ARG DOCKER_MACHINE_SCALEWAY_VERSION=1.3
 
